@@ -22,9 +22,8 @@ body {
 <script src="js/tsunami/filters/Blendmode.js"></script>
 <script src="js/tsunami/filters/ColorHalftoneFilter.js"></script>
 <script>
-
+  var canvas, filter, image;
   init = function () {
-    container = document.getElementById("container");
     canvas = document.getElementById("canvas");
     filter = new tsunami.filters.ColorHalftoneFilter();
     image = new Image();
