@@ -79,6 +79,26 @@ tsunami.filters = tsunami.filters || {};
 
     }
 
+  p.grayscale = function(context) {
+		var width = context.canvas.width;
+		var height = context.canvas.height;
+    var imageData = context.getImageData(0, 0, width, height);
+    var data = imageData.data;
+
+    for(var i = 0; i < data.length; i += 4) {
+      var brightness = 0.34 * data[i] + 0.5 * data[i + 1] + 0.16 * data[i + 2];
+      // red
+      data[i] = brightness;
+      // green
+      data[i + 1] = brightness;
+      // blue
+      data[i + 2] = brightness;
+    }
+
+    // overwrite original image
+    context.putImageData(imageData, 0, 0);
+  }
+
     p.rgb2cmyk = function(r, g, b) {
         var computedC = 0;
         var computedM = 0;
