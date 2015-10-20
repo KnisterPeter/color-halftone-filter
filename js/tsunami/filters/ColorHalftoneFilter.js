@@ -85,6 +85,9 @@ tsunami.filters = tsunami.filters || {};
         //var g = parseInt( (''+g).replace(/\s/g,''),10 );
         //var b = parseInt( (''+b).replace(/\s/g,''),10 );
 
+        var gray = (r + g+ b) / 3;
+        r = g = b = gray;
+
         // BLACK
         if (r==0 && g==0 && b==0) {
             computedC = 1;
