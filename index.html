@@ -25,17 +25,12 @@ body {
 
   init = function () {
     container = document.getElementById("container");
-    this.regularBorder();
     canvas = document.getElementById("canvas");
     filter = new tsunami.filters.ColorHalftoneFilter();
     image = new Image();
     image.onload = this.applyFilter.bind(this);
     image.src = '520297143_295x166.jpg';
   }
-
-	regularBorder = function () {
-		container.style.backgroundColor = "#e3ddd8";
-	}
 
 	applyFilter = function() {
     canvas.width = image.width * 2;
