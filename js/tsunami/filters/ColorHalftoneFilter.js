@@ -11,7 +11,12 @@ tsunami.filters = tsunami.filters || {};
 
     p.initialize = function(pixelsPerPoint) {
         this.pixelsPerPoint = pixelsPerPoint;
-        this.colors = [new tsunami.filters.ColorHalftoneFilterColor("c", "#00FFFF", 15), new tsunami.filters.ColorHalftoneFilterColor("m", "#FF00FF", 75), new tsunami.filters.ColorHalftoneFilterColor("y", "#FFFF00", 0), new tsunami.filters.ColorHalftoneFilterColor("k", "#000000", 45)];
+        this.colors = [
+          new tsunami.filters.ColorHalftoneFilterColor("c", "#00FFFF", 15),
+          new tsunami.filters.ColorHalftoneFilterColor("m", "#FF00FF", 75),
+          new tsunami.filters.ColorHalftoneFilterColor("y", "#FFFF00", 0),
+          new tsunami.filters.ColorHalftoneFilterColor("k", "#000000", 45)
+        ];
     }
 
     p.applyFilter = function(ctx) {
@@ -85,8 +90,9 @@ tsunami.filters = tsunami.filters || {};
         //var g = parseInt( (''+g).replace(/\s/g,''),10 );
         //var b = parseInt( (''+b).replace(/\s/g,''),10 );
 
-        var gray = (r + g+ b) / 3;
-        r = g = b = gray;
+        // var gray = (r + g+ b) / 3;
+        // var gray = 0.21 * r + 0.72 * g + 0.07 * b;
+        // r = g = b = gray;
 
         // BLACK
         if (r==0 && g==0 && b==0) {

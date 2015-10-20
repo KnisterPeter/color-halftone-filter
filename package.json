@@ -1,0 +1,23 @@
+{
+  "name": "color-halftone-filter",
+  "version": "1.0.0",
+  "description": "color-halftone-filter =====================",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KnisterPeter/color-halftone-filter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KnisterPeter/color-halftone-filter/issues"
+  },
+  "homepage": "https://github.com/KnisterPeter/color-halftone-filter#readme",
+  "dependencies": {
+    "http-server": "^0.8.5"
+  }
+}
