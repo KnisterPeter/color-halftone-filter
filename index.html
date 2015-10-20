@@ -14,12 +14,6 @@ body {
 	position: relative;
 	background-color:#e3ddd8;
 }
-
-#canvas {
-	position:absolute;
-	top:10px;
-	left:10px;
-}
 </style>
 <script src="js/tsunami/utils/Debug.js"></script>
 <script src="js/tsunami/geom/Rectangle.js"></script>
@@ -32,42 +26,29 @@ body {
   init = function () {
     container = document.getElementById("container");
     this.regularBorder();
-
     canvas = document.getElementById("canvas");
-    copy = document.createElement("canvas");
-
     filter = new tsunami.filters.ColorHalftoneFilter();
-
     image = new Image();
-    image.onload = this.imageload.bind(this);
+    image.onload = this.applyFilter.bind(this);
     image.src = '520297143_295x166.jpg';
   }
-	
 
 	regularBorder = function () {
 		container.style.backgroundColor = "#e3ddd8";
 	}
 
-	imageload = function (event) {
-		var size = tsunami.geom.Ratio.scaleToFill({width:image.width, height:image.height}, {width:canvas.width, height:canvas.height});
-		var size2 = tsunami.geom.Ratio.scaleToFit({width:canvas.width, height:canvas.height}, {width:image.width, height:image.height});
-
-		var context = copy.getContext("2d");
-		context.drawImage(image, (image.width - size2.width) / 2, (image.height - size2.height) / 2, size2.width, size2.height, 0, 0, canvas.width, canvas.height);
-
-		this.applyFilter();
-	}
-
 	applyFilter = function() {
+    canvas.width = image.width * 2;
+    canvas.height = image.height * 2;
 		var context = canvas.getContext("2d");
-		context.drawImage(copy, 0, 0, canvas.width, canvas.height);
+		context.drawImage(image, 0, 0, canvas.width, canvas.height);
 		setTimeout(this.waitForRedraw.bind(this), 100);
 	}
 
 	waitForRedraw = function() {
 		var context = canvas.getContext("2d");
 		// filter.pixelsPerPoint = eval(range.value);
-		filter.pixelsPerPoint = 6;
+		filter.pixelsPerPoint = 3;
 		filter.applyFilter(context);
     filter.grayscale(context);
 	}
@@ -77,6 +58,7 @@ body {
 <body onload="init()">
 <div id="container">
 	<canvas id="canvas"></canvas>
+  <img src="520297143_295x166.jpg" />
 </div>
 </body>
 </html>
