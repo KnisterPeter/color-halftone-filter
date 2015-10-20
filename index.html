@@ -22,20 +22,20 @@ body {
 <script src="js/tsunami/filters/Blendmode.js"></script>
 <script src="js/tsunami/filters/ColorHalftoneFilter.js"></script>
 <script>
-  var canvas, filter, image;
+  var image;
   init = function () {
-    canvas = document.getElementById("canvas");
-    filter = new tsunami.filters.ColorHalftoneFilter();
     image = new Image();
     image.onload = this.applyFilter.bind(this);
     image.src = '520297143_295x166.jpg';
   }
 
 	applyFilter = function() {
+    var canvas = document.getElementById("canvas");
     canvas.width = image.width * 2;
     canvas.height = image.height * 2;
 		var context = canvas.getContext("2d");
 		context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    var filter = new tsunami.filters.ColorHalftoneFilter();
 		filter.pixelsPerPoint = 3;
 		filter.applyFilter(context);
     filter.grayscale(context);
