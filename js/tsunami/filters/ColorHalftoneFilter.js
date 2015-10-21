@@ -12,9 +12,9 @@ tsunami.filters = tsunami.filters || {};
     p.initialize = function(pixelsPerPoint) {
         this.pixelsPerPoint = pixelsPerPoint;
         this.colors = [
-          new tsunami.filters.ColorHalftoneFilterColor("c", "#00FFFF", 15),
-          new tsunami.filters.ColorHalftoneFilterColor("m", "#FF00FF", 75),
-          new tsunami.filters.ColorHalftoneFilterColor("y", "#FFFF00", 0),
+          new tsunami.filters.ColorHalftoneFilterColor("c", "#C9C9C9", 15),
+          new tsunami.filters.ColorHalftoneFilterColor("m", "#474747", 75),
+          new tsunami.filters.ColorHalftoneFilterColor("y", "#EDEDED", 0),
           new tsunami.filters.ColorHalftoneFilterColor("k", "#000000", 45)
         ];
     }
